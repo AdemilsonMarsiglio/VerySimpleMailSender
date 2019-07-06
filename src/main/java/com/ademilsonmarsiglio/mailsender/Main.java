@@ -53,7 +53,6 @@ public class Main extends javax.swing.JFrame {
         txfPort = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         txfUser = new javax.swing.JTextField();
-        txfPassword = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         txfEmailFrom = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
@@ -64,6 +63,7 @@ public class Main extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         txfNameFrom = new javax.swing.JTextField();
         progress = new javax.swing.JProgressBar();
+        txfPassword = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,7 +75,7 @@ public class Main extends javax.swing.JFrame {
 
         txtJsonParameters.setColumns(20);
         txtJsonParameters.setRows(5);
-        txtJsonParameters.setText("[\n    {\"name\": \"Ademilson Marsiglio\", \"mail\": \"ademilson.marsiglio@gmail.com\", \"city\": \"Passo Fundo\", \"contry\": \"Brazil\"},\n    {\"name\": \"Other Name\", \"mail\": \"ademilson.marsiglio@gmail.com\", \"city\": \"Passo Fundo\", \"contry\": \"Brazil\"}\n]");
+        txtJsonParameters.setText("[\n    {\"name\": \"Ademilson Marsiglio\", \"mail\": \"ademilson.marsiglio@gmail.com\", \"city\": \"Passo Fundo\", \"country\": \"Brazil\"},\n    {\"name\": \"Other Name\", \"mail\": \"ademilson.marsiglio@gmail.com\", \"city\": \"Passo Fundo\", \"country\": \"Brazil\"}\n]");
         jScrollPane1.setViewportView(txtJsonParameters);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -88,7 +88,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jScrollPane1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(0, 134, Short.MAX_VALUE)))
+                        .addGap(0, 128, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -97,13 +97,13 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 346, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
 
-        jLabel2.setText("Insert the TEMPLATE HTML");
+        jLabel2.setText("Insert the TEMPLATE HTML (use ${nameOfParameter})");
 
         txtTemplateHTML.setColumns(20);
         txtTemplateHTML.setRows(5);
@@ -120,7 +120,7 @@ public class Main extends javax.swing.JFrame {
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addGap(0, 312, Short.MAX_VALUE)))
+                        .addGap(0, 131, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -129,7 +129,7 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 346, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 336, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -161,9 +161,6 @@ public class Main extends javax.swing.JFrame {
         txfUser.setText("youruser");
         txfUser.setName("User"); // NOI18N
 
-        txfPassword.setText("yourpassour");
-        txfPassword.setName("Password"); // NOI18N
-
         jLabel6.setText("Password");
 
         txfEmailFrom.setText("youruser@gmail.com");
@@ -171,10 +168,10 @@ public class Main extends javax.swing.JFrame {
 
         jLabel7.setText("Mail from");
 
-        txfSubject.setText("Insert the subject in this field");
+        txfSubject.setText("Dear ${name} from ${city} - ${country}... ");
         txfSubject.setName("Subject"); // NOI18N
 
-        jLabel8.setText("Subject");
+        jLabel8.setText("Subject (use ${nameOfParameter} here too)");
 
         jLabel9.setText("Transport Strategy");
 
@@ -216,20 +213,23 @@ public class Main extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(pnlFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(pnlFormLayout.createSequentialGroup()
-                                .addComponent(txfSubject, javax.swing.GroupLayout.DEFAULT_SIZE, 434, Short.MAX_VALUE)
+                                .addComponent(txfSubject)
                                 .addGap(112, 112, 112))
                             .addGroup(pnlFormLayout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(pnlFormLayout.createSequentialGroup()
                                 .addGroup(pnlFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel8)
+                                    .addComponent(jLabel6)
+                                    .addComponent(txfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(pnlFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(pnlFormLayout.createSequentialGroup()
-                                        .addGroup(pnlFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel6)
-                                            .addComponent(txfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(pnlFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel9)
-                                            .addComponent(cbxStrategy, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                                        .addComponent(jLabel9)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 244, Short.MAX_VALUE))
+                                    .addGroup(pnlFormLayout.createSequentialGroup()
+                                        .addComponent(cbxStrategy, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))))))
                     .addGroup(pnlFormLayout.createSequentialGroup()
                         .addComponent(progress, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -239,32 +239,30 @@ public class Main extends javax.swing.JFrame {
         pnlFormLayout.setVerticalGroup(
             pnlFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlFormLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
+                .addGap(21, 21, 21)
                 .addGroup(pnlFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(pnlFormLayout.createSequentialGroup()
-                        .addGroup(pnlFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5))
+                        .addGroup(pnlFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(pnlFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel4)
+                                .addComponent(jLabel5))
+                            .addComponent(jLabel9))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(pnlFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtSmtp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txfPort, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txfUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(pnlFormLayout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(pnlFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txfUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txfPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cbxStrategy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(pnlFormLayout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addGap(30, 30, 30)))
+                        .addComponent(jLabel6)
+                        .addGap(32, 32, 32)))
                 .addGroup(pnlFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(pnlFormLayout.createSequentialGroup()
+                        .addGap(12, 12, 12)
                         .addGroup(pnlFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlFormLayout.createSequentialGroup()
-                                .addGap(6, 6, 6)
                                 .addGroup(pnlFormLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel10)
                                     .addComponent(jLabel7)
@@ -462,6 +460,7 @@ public class Main extends javax.swing.JFrame {
             public void run() {
                 Main main = new Main();
                 main.setTitle("VerySimple sender mail");
+                main.setLocationRelativeTo(null);
                 main.setVisible(true);
             }
         });
@@ -489,7 +488,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JProgressBar progress;
     private javax.swing.JTextField txfEmailFrom;
     private javax.swing.JTextField txfNameFrom;
-    private javax.swing.JTextField txfPassword;
+    private javax.swing.JPasswordField txfPassword;
     private javax.swing.JTextField txfPort;
     private javax.swing.JTextField txfSubject;
     private javax.swing.JTextField txfUser;
